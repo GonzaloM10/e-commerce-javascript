@@ -1,0 +1,182 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 14rem;
+  max-height: 170px;
+}
+
+#root {
+  display: grid;
+  grid:
+    "nav nav nav nav"
+    "filtros prod prod prod"
+    "none prod prod prod"
+    "foot foot foot foot";
+  gap: 1rem;
+  min-height: 100vh;
+
+  margin: 0 1rem;
+}
+
+/* NAV */
+
+#nav {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 50;
+
+  grid-area: nav;
+  display: flex;
+  justify-content: space-between;
+
+  border-bottom: 2px solid black;
+  padding: 1rem 2rem;
+  max-height: 70px;
+}
+
+#barra-busqueda {
+  width: 50%;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 1.2rem;
+  border: 1px solid black;
+}
+
+#barra-busqueda:focus-visible {
+  outline: none;
+}
+
+.btn-carrito {
+  width: 60px;
+}
+
+.btn-carrito img {
+  width: 25px;
+}
+
+/* ASIDE FILTROS */
+
+#interfazFiltros {
+  grid-area: filtros;
+  border: 1px solid black;
+
+  position: sticky;
+  top: 1rem;
+  max-width: 200px;
+}
+
+.filtros {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 1rem;
+  min-height: 100%;
+}
+
+.marcas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.8rem 0;
+}
+
+.marcas label {
+  margin: 1rem 0;
+}
+
+/* PRODUCTOS */
+
+#interfazProductos {
+  grid-area: prod;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  min-width: fit-content;
+  min-height: 720px;
+}
+
+.card {
+  border: 1px solid black;
+  flex: 1 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  min-height: 340px;
+  min-width: 260px;
+  max-width: 280px;
+
+  margin: 0 1rem 1rem 1rem;
+}
+
+.btn-card {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  padding: 5px;
+}
+
+/* FOOTER */
+
+#footer {
+  grid-area: foot;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid black;
+  padding: 1rem 2rem;
+}
+
+/* CARRITO */
+
+#dialog {
+  min-width: 400px;
+  min-height: 600px;
+
+  margin-left: auto;
+  border: 2px solid black;
+  padding: 1rem;
+}
+
+#carrito-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.img-cerrar-modal {
+  width: 30px;
+  height: 30px;
+}
+
+.btn-cerrar-modal {
+  align-self: flex-end;
+  max-width: fit-content;
+}
+
+#precio-total {
+  font-size: 1.3rem;
+}
+
+.producto-carrito {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 100%;
+
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+.producto-carrito img {
+  max-width: 100px;
+}
