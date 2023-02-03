@@ -180,3 +180,42 @@ img {
 .producto-carrito img {
   max-width: 100px;
 }
+
+.animacion-carrito {
+  animation: animacion-carrito 2s infinite;
+}
+
+@keyframes animacion-carrito {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+.suma-resta {
+  display: flex;
+}
+
+.suma-resta-item {
+  margin: 0 10px;
+  transform: scale(1.2);
+}
+
+.btn-trash {
+  transform: scale(1.4);
+  transition: all 0.6s ease;
+}
+
+.btn-trash:hover {
+  background-color: rgb(179, 0, 0);
+}

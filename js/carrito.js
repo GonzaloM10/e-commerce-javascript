@@ -15,10 +15,16 @@ class InterfazCarrito extends Interfaz {
     spanPrecioTotal.innerHTML = this.precioTotal;
   }
 
+  tieneProductos() {
+    return this.elementoHtml.contains(
+      document.querySelector(".producto-carrito")
+    );
+  }
+
   crearProducto(objeto) {
     this.agregarDinero(objeto.precio);
-    let productoCarrito = document.createElement("div");
 
+    let productoCarrito = document.createElement("div");
     if (
       this.elementoHtml.contains(document.getElementById(`${objeto.marca}`))
     ) {
@@ -30,6 +36,13 @@ class InterfazCarrito extends Interfaz {
         parseInt(cantidadProducto.innerHTML) + objeto.cantidad
       }`;
     } else {
+      // Agregar animacion a boton carrito
+      if (!this.tieneProductos()) {
+        let btnCarrito = document.querySelector(".btn-carrito");
+
+        btnCarrito.classList.add("animacion-carrito");
+      }
+
       productoCarrito.id = `${objeto.marca}`;
       productoCarrito.classList = `producto-carrito`;
       productoCarrito.innerHTML = `
@@ -41,26 +54,78 @@ class InterfazCarrito extends Interfaz {
                 <p>Cantidad: <span id="cantidad-producto-${objeto.marca}">${objeto.cantidad}</span></p>
               </div>
             </div>
-  
-            <button class="btn-trash-${objeto.marca}"><img src="svg/trash.svg"></button>
+            <div class="suma-resta">
+              <button class="suma-resta-item" id="btn-suma-producto-${objeto.marca}"><img src="svg/plus-square-fill.svg"></button>
+              <p class="suma-resta-item"><img src="svg/plus-slash-minus.svg"></p>
+              <button class="suma-resta-item" id="btn-resta-producto-${objeto.marca}"><img src="svg/dash-square-fill.svg"></button>
+            </div>
+            <button class="btn-trash-${objeto.marca} btn-trash"><img src="svg/trash.svg"></button>
           `;
-    }
+      this.agregarElemento(productoCarrito);
 
-    this.agregarElemento(productoCarrito);
+      // Logica botones suma y resta
 
-    let btnEliminarProducto = document.querySelector(
-      `.btn-trash-${objeto.marca}`
-    );
-
-    btnEliminarProducto.addEventListener("click", () => {
-      let cantidadProducto = parseInt(
-        document.getElementById(`cantidad-producto-${objeto.marca}`).innerHTML
+      let btnSumaProducto = document.getElementById(
+        `btn-suma-producto-${objeto.marca}`
       );
 
-      this.restarDinero(objeto.precio * cantidadProducto);
+      btnSumaProducto.addEventListener("click", () => {
+        this.agregarDinero(objeto.precio);
 
-      let divPadreBoton = document.getElementById(`${objeto.marca}`);
-      divPadreBoton.remove();
-    });
+        let spanCantidad = document.getElementById(
+          `cantidad-producto-${objeto.marca}`
+        );
+
+        let cantidadActual = parseInt(spanCantidad.innerHTML);
+
+        cantidadActual++;
+
+        spanCantidad.innerHTML = cantidadActual;
+      });
+
+      let btnRestaProductos = document.getElementById(
+        `btn-resta-producto-${objeto.marca}`
+      );
+
+      btnRestaProductos.addEventListener("click", () => {
+        if (this.precioTotal <= 0) {
+          return 0;
+        }
+
+        this.restarDinero(objeto.precio);
+
+        let spanCantidad = document.getElementById(
+          `cantidad-producto-${objeto.marca}`
+        );
+        let cantidadActual = parseInt(spanCantidad.innerHTML);
+
+        cantidadActual--;
+
+        spanCantidad.innerHTML = cantidadActual;
+      });
+
+      // Boton eliminar Producto
+      let btnEliminarProducto = document.querySelector(
+        `.btn-trash-${objeto.marca}`
+      );
+
+      btnEliminarProducto.addEventListener("click", () => {
+        let cantidadProducto = parseInt(
+          document.getElementById(`cantidad-producto-${objeto.marca}`).innerHTML
+        );
+
+        this.restarDinero(objeto.precio * cantidadProducto);
+
+        let divPadreBoton = document.getElementById(`${objeto.marca}`);
+        divPadreBoton.remove();
+
+        // Eliminar animacion de boton carrito
+        if (!this.tieneProductos()) {
+          let btnCarrito = document.querySelector(".btn-carrito");
+
+          btnCarrito.classList.remove("animacion-carrito");
+        }
+      });
+    }
   }
 }
