@@ -137,9 +137,7 @@ formFiltros.addEventListener("submit", (e) => {
     }
   }
 
-  if (productosFiltrados.length === 0) {
-    interfazProductos.agregarListaProductos(copiaProductos);
-  } else {
-    interfazProductos.agregarListaProductos(productosFiltrados);
-  }
+  productosFiltrados.length === 0
+    ? interfazProductos.agregarListaProductos(copiaProductos)
+    : interfazProductos.agregarListaProductos(productosFiltrados);
 });

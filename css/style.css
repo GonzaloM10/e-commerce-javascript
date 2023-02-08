@@ -182,7 +182,7 @@ img {
 }
 
 .animacion-carrito {
-  animation: animacion-carrito 2s infinite;
+  animation: animacion-carrito 1.6s infinite;
 }
 
 @keyframes animacion-carrito {

@@ -29,11 +29,12 @@ carritoPopUp.agregarInnerHtml(`
       <button value="cancel" class="btn-cerrar-modal"><img src="svg/x-square.svg" class="img-cerrar-modal"/></button>
       <div class="productos"></div>
       <p id="precio-total">Total a pagar: <span class="span-precio-total">0</span> AR$</p>
-      
     </form>
 `);
 
 root.append(carritoPopUp.elementoHtml);
+
+carritoPopUp.cargaProductosLS();
 
 const btnCarritoPopUp = document.querySelector(".btn-carrito");
 const dialog = document.getElementById("dialog");
