@@ -84,64 +84,12 @@ interfazFiltros.agregarInnerHtml(filtros);
 
 // PRODUCTOS O STOCK
 
-const productos = [
-  {
-    img: "img/asus.png",
-    titulo: "Asus",
-    marca: "asus",
-    precio: 80000,
-    cantidad: 1,
-  },
-  {
-    img: "img/deepcool.jpg",
-    titulo: "Deepcool",
-    marca: "deepcool",
-    precio: 40000,
-    cantidad: 1,
-  },
-  {
-    img: "img/logitech.jpg",
-    titulo: "Logitech",
-    marca: "logitech",
-    precio: 60000,
-    cantidad: 1,
-  },
-  {
-    img: "img/nvidia.png",
-    titulo: "Nvidia",
-    marca: "nvidia",
-    precio: 70000,
-    cantidad: 1,
-  },
-  {
-    img: "img/asus.png",
-    titulo: "Asus",
-    marca: "asus",
-    precio: 80000,
-    cantidad: 1,
-  },
-  {
-    img: "img/deepcool.jpg",
-    titulo: "Deepcool",
-    marca: "deepcool",
-    precio: 40000,
-    cantidad: 1,
-  },
-  {
-    img: "img/logitech.jpg",
-    titulo: "Logitech",
-    marca: "logitech",
-    precio: 60000,
-    cantidad: 1,
-  },
-  {
-    img: "img/nvidia.png",
-    titulo: "Nvidia",
-    marca: "nvidia",
-    precio: 70000,
-    cantidad: 1,
-  },
-];
+async function getProductos(url) {
+  const res = await fetch(url);
+
+  return await res.json();
+}
+let productos;
 
 const interfazProductos = new InterfazProductos({
   elementoHtml: document.createElement("div"),
@@ -149,7 +97,16 @@ const interfazProductos = new InterfazProductos({
 });
 
 interfazProductos.agregarAlDom(root);
-interfazProductos.agregarListaProductos(productos);
+
+async function cargarProductos() {
+  await getProductos("./json/productos.json").then((data) => {
+    productos = data;
+  });
+
+  interfazProductos.agregarListaProductos(productos);
+}
+
+cargarProductos();
 
 //FOOTER
 

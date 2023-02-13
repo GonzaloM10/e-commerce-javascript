@@ -84,20 +84,20 @@ class InterfazCarrito extends Interfaz {
       productoCarrito.id = `${objeto.marca}`;
       productoCarrito.classList = `producto-carrito`;
       productoCarrito.innerHTML = `
-      <div class="info-producto-carrito">
-      <img src="${objeto.img}" class="img-producto-carrito"/>
-      <div id="info-producto-${objeto.marca}">
-      <p>Producto: ${objeto.titulo}</p>
-      <p>Precio: ${objeto.precio}</p>
-      <p>Cantidad: <span id="cantidad-producto-${objeto.marca}">${objeto.cantidad}</span></p>
-      </div>
-      </div>
-      <div class="suma-resta">
-      <button class="suma-resta-item" id="btn-suma-producto-${objeto.marca}"><img src="svg/plus-square-fill.svg"></button>
-      <p class="suma-resta-item"><img src="svg/plus-slash-minus.svg"></p>
-      <button class="suma-resta-item" id="btn-resta-producto-${objeto.marca}"><img src="svg/dash-square-fill.svg"></button>
-      </div>
-      <button class="btn-trash-${objeto.marca} btn-trash"><img src="svg/trash.svg"></button>
+        <div class="info-producto-carrito">
+          <img src="${objeto.img}" class="img-producto-carrito"/>
+          <div id="info-producto-${objeto.marca}">
+            <p>Producto: ${objeto.titulo}</p>
+            <p>Precio: ${objeto.precio}</p>
+            <p>Cantidad: <span id="cantidad-producto-${objeto.marca}">${objeto.cantidad}</span></p>
+          </div>
+        </div>
+        <div class="suma-resta">
+          <button class="suma-resta-item" id="btn-suma-producto-${objeto.marca}"><img src="svg/plus-square-fill.svg"></button>
+          <p class="suma-resta-item"><img src="svg/plus-slash-minus.svg"></p>
+          <button class="suma-resta-item" id="btn-resta-producto-${objeto.marca}"><img src="svg/dash-square-fill.svg"></button>
+        </div>
+        <button class="btn-trash-${objeto.marca} btn-trash"><img src="svg/trash.svg"></button>
       `;
       this.agregarElemento(productoCarrito);
 

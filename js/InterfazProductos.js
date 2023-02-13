@@ -22,6 +22,23 @@ class InterfazProductos extends Interfaz {
 
       btnCard.addEventListener("click", () => {
         carritoPopUp.crearProducto(obj);
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-start",
+          background: "rgb(118, 253, 177)",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+
+        Toast.fire({
+          icon: "success",
+          title: "Producto agregado correctamente!",
+        });
       });
     });
   }

@@ -5,7 +5,6 @@ const formFiltros = document.querySelector(".filtros");
 formFiltros.addEventListener("submit", (e) => {
   e.preventDefault();
   interfazProductos.limpiarProductos();
-  console.log(e.target);
 
   let productosFiltrados = [];
 
