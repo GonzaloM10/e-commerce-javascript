@@ -120,6 +120,10 @@ img {
   margin: 0 1rem 1rem 1rem;
 }
 
+.descripcion {
+  font-size: 1.2rem;
+}
+
 .btn-card {
   margin-bottom: 10px;
   font-size: 1.1rem;

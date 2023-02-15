@@ -21,6 +21,20 @@
     "cantidad": 1
   },
   {
+    "img": "img/redragon.jpg",
+    "titulo": "Redragon",
+    "marca": "redragon",
+    "precio": 25000,
+    "cantidad": 1
+  },
+  {
+    "img": "img/hyperx.jpg",
+    "titulo": "HyperX",
+    "marca": "hyperx",
+    "precio": 38000,
+    "cantidad": 1
+  },
+  {
     "img": "img/nvidia.png",
     "titulo": "Nvidia",
     "marca": "nvidia",
@@ -53,6 +67,20 @@
     "titulo": "Nvidia",
     "marca": "nvidia",
     "precio": 70000,
+    "cantidad": 1
+  },
+  {
+    "img": "img/redragon.jpg",
+    "titulo": "Redragon",
+    "marca": "redragon",
+    "precio": 25000,
+    "cantidad": 1
+  },
+  {
+    "img": "img/hyperx.jpg",
+    "titulo": "HyperX",
+    "marca": "hyperx",
+    "precio": 38000,
     "cantidad": 1
   }
 ]

@@ -7,7 +7,6 @@ class InterfazCarrito extends Interfaz {
     this.productosEnElCarrito.forEach((prod) => {
       let spanPrecioTotal = document.querySelector(".span-precio-total");
       this.precioTotal += prod.precio * prod.cantidad - prod.precio;
-      console.log(this.precioTotal);
       spanPrecioTotal.innerHTML = this.precioTotal;
       this.crearProducto(prod);
     });
@@ -168,7 +167,6 @@ class InterfazCarrito extends Interfaz {
               let productoEnLocalStorage = this.productosEnElCarrito.find(
                 (el) => el.titulo === objeto.titulo
               );
-              console.log(productoEnLocalStorage);
               let indice = this.productosEnElCarrito.indexOf(
                 productoEnLocalStorage
               );

@@ -6,37 +6,20 @@ formFiltros.addEventListener("submit", (e) => {
   e.preventDefault();
   interfazProductos.limpiarProductos();
 
+  const filter = (id) => {
+    return productos.filter((prod) => prod.marca === id);
+  };
+
   let productosFiltrados = [];
 
   //Filtrado por checkboxes
-
-  if (e.target[1].checked) {
-    let arr = productos.filter((prod) => {
-      return prod.marca === "asus";
-    });
-
-    productosFiltrados = [...productosFiltrados, ...arr];
-  }
-  if (e.target[2].checked) {
-    let arr = productos.filter((prod) => {
-      return prod.marca === "nvidia";
-    });
-
-    productosFiltrados = [...productosFiltrados, ...arr];
-  }
-  if (e.target[3].checked) {
-    let arr = productos.filter((prod) => {
-      return prod.marca === "logitech";
-    });
-
-    productosFiltrados = [...productosFiltrados, ...arr];
-  }
-  if (e.target[4].checked) {
-    let arr = productos.filter((prod) => {
-      return prod.marca === "deepcool";
-    });
-
-    productosFiltrados = [...productosFiltrados, ...arr];
+  for (const target of e.target) {
+    if (target.type === "checkbox") {
+      if (target.checked) {
+        let products = filter(target.id);
+        productosFiltrados = [...productosFiltrados, ...products];
+      }
+    }
   }
 
   // Ordenado por select

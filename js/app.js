@@ -128,7 +128,7 @@ inputBusqueda.addEventListener("input", () => {
   //Minimo 3 caracteres para empezar la busqueda
   if (inputBusqueda.value.length >= 3) {
     let productosFiltrados = productos.filter((prod) =>
-      prod.marca.includes(inputBusqueda.value)
+      prod.marca.includes(inputBusqueda.value.toLowerCase())
     );
 
     if (productosFiltrados.length > 0) {

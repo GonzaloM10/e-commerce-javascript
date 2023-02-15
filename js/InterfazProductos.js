@@ -25,7 +25,7 @@ class InterfazProductos extends Interfaz {
         const Toast = Swal.mixin({
           toast: true,
           position: "top-start",
-          background: "rgb(118, 253, 177)",
+          background: "rgb(200, 253, 177)",
           showConfirmButton: false,
           timer: 3000,
           timerProgressBar: true,
