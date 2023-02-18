@@ -134,10 +134,6 @@ class InterfazCarrito extends Interfaz {
       );
 
       btnRestaProductos.addEventListener("click", () => {
-        // if (this.precioTotal <= 0) {
-        //   return 0;
-        // }
-
         let spanCantidad = document.getElementById(
           `cantidad-producto-${objeto.marca}`
         );
@@ -182,11 +178,9 @@ class InterfazCarrito extends Interfaz {
                   "animacion-carrito"
                 );
 
-              Swal.fire(
-                "Eliminado!",
-                "El producto ha sido eliminado",
-                "success"
-              );
+              // Toast confirmacion
+
+              toastConfirmacion();
             }
           });
 
@@ -208,6 +202,7 @@ class InterfazCarrito extends Interfaz {
 
       btnEliminarProducto.addEventListener("click", () => {
         this.elementoHtml.close();
+
         Swal.fire({
           title: "Estás seguro?",
           text: "Podrás volver a agregar el producto en cualquier momento!",
@@ -247,7 +242,7 @@ class InterfazCarrito extends Interfaz {
                 "animacion-carrito"
               );
 
-            Swal.fire("Eliminado!", "El producto ha sido eliminado", "success");
+            toastConfirmacion();
           }
         });
       });

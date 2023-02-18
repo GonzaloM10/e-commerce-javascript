@@ -74,6 +74,14 @@ const filtros = `
             Deepcool
             <input type="checkbox" id="deepcool" />
         </label>
+        <label for="hyperx">
+            HyperX
+            <input type="checkbox" id="hyperx" />
+        </label>
+        <label for="redragon">
+            Redragon
+            <input type="checkbox" id="redragon" />
+        </label>
     </div>
 
     <button id="btn-filtros" type="submit">Aplicar</button>

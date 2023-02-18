@@ -29,68 +29,15 @@ formFiltros.addEventListener("submit", (e) => {
   if (e.target[0].value !== "Ordenar") {
     switch (e.target[0].value) {
       case "A-Z":
-        arrOrdenado = productosFiltrados.sort((a, b) => {
-          const nombreA = a.titulo.toLocaleLowerCase();
-          const nombreB = b.titulo.toLocaleLowerCase();
+        arrOrdenado = ordernarNombre(productosFiltrados, "A-Z");
 
-          if (nombreA < nombreB) {
-            return -1;
-          }
-
-          if (nombreA > nombreB) {
-            return 1;
-          }
-
-          return 0;
-        });
-
-        copiaProductos = copiaProductos.sort((a, b) => {
-          const nombreA = a.titulo.toLocaleLowerCase();
-          const nombreB = b.titulo.toLocaleLowerCase();
-
-          if (nombreA < nombreB) {
-            return -1;
-          }
-
-          if (nombreA > nombreB) {
-            return 1;
-          }
-
-          return 0;
-        });
+        copiaProductos = ordernarNombre(copiaProductos, "A-Z");
 
         break;
       case "Z-A":
-        arrOrdenado = productosFiltrados.sort((a, b) => {
-          const nombreA = a.titulo.toLocaleLowerCase();
-          const nombreB = b.titulo.toLocaleLowerCase();
+        arrOrdenado = ordernarNombre(productosFiltrados, "Z-A");
 
-          if (nombreA > nombreB) {
-            return -1;
-          }
-
-          if (nombreA < nombreB) {
-            return 1;
-          }
-
-          return 0;
-        });
-
-        copiaProductos = copiaProductos.sort((a, b) => {
-          const nombreA = a.titulo.toLocaleLowerCase();
-          const nombreB = b.titulo.toLocaleLowerCase();
-
-          if (nombreA > nombreB) {
-            return -1;
-          }
-
-          if (nombreA < nombreB) {
-            return 1;
-          }
-
-          return 0;
-        });
-
+        copiaProductos = ordernarNombre(copiaProductos, "Z-A");
         break;
 
       case "Precio: Mayor a menor":
